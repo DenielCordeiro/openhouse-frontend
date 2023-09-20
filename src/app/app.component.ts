@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ListItemsService } from './service/list-items.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'frontend';
+
+  constructor(public listItemsService: ListItemsService) {
+    this.gettingListItems();
+    this.updatingItem();
+  }
+
+  gettingListItems() {
+    this.listItemsService.getList();
+  }
+
+  updatingItem() {
+    this.listItemsService.updateItem();
+  }
 }
