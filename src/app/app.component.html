@@ -9,14 +9,12 @@
       <p>Lista de presentes que gostariamos de ganhar!</p>
     </div>
 
-    <div class="to-do-list">
+    <div class="to-do-list" *ngFor="let item of arrayItems">
       <div class="card-item">
-        <!-- <input type="checkbox" *ngFor="let item of listItems"> -->
-        <input type="checkbox" >
+        <input type="checkbox" (click)="updatingItem(item._id, item.name, item.value)">
 
         <div class="name-item">
-          <span>item</span>
-          <!-- <span>{{ item.name }}</span> -->
+          <span>{{ item.name }}</span>
         </div>
       </div>
     </div>

@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ListItemsModel } from '../model/list-items.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListItemsService {
+  apiUrl: string = 'http://localhost:3334/items';
 
-  constructor() { }
+  httpOptions: {} = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-  getList() {
-    console.log("teste da função get no serviço");
+  constructor(private http : HttpClient) {}
+
+  getList(): Observable<ListItemsModel[]> {
+    return this.http.get<ListItemsModel[]>(this.apiUrl, this.httpOptions);
   }
 
-  updateItem() {
-    console.log("teste da função update no serviço");
+  updateItem(id: string, name: string, value: boolean) {
+    return this.http.put(`${this.apiUrl}/${id}/${name}/${value}`, this.httpOptions);
   }
 }
