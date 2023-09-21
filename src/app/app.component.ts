@@ -10,6 +10,7 @@ import { ListItemsModel } from './model/list-items.model';
 export class AppComponent implements OnInit {
   arrayItems!: ListItemsModel[];
   listItems!: ListItemsModel;
+  // checkbox: any = document.querySelector('.checkbox:checked');
 
   constructor( public listItemsService: ListItemsService ) { }
 
@@ -17,23 +18,27 @@ export class AppComponent implements OnInit {
     this.gettingListItems();
   }
 
-  gettingListItems() {
+  observableCheckbox(): void {
+    let checkbox = document.querySelector('Input')
+    console.log('checkbox: ', checkbox);
+  }
+
+  gettingListItems(): void {
     this.listItemsService.getList().subscribe(items => {
       this.arrayItems = items;
-      //  console.log(this.arrayItems);
-
     });
-  }
 
-  updatingItem(id: any, name: any, value: any) {
-    // this.listItemsService.updateItem(id, name, value);
-
-    console.log('dados para atualizar: ', id, name, value);
+    this.observableCheckbox();
 
   }
 
-  // this.arrayItems.forEach(data => {
-  //   this.listItems = data;
-  //   console.log("lista de items: ", this.listItems);
-  // });
+  updatingItem(id: any, name: any, value: any, event: Event): void {
+    var eventChecked: any = event;
+
+    if (eventChecked.target?.checked === true) {
+      this.listItemsService.updateItem(id, name, value = true);
+    } else {
+      this.listItemsService.updateItem(id, name, value = false);
+    }
+  }
 }

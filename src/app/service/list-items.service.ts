@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
 import { ListItemsModel } from '../model/list-items.model';
 
 @Injectable({
@@ -21,7 +21,11 @@ export class ListItemsService {
     return this.http.get<ListItemsModel[]>(this.apiUrl, this.httpOptions);
   }
 
+  // updateItem(id: string, name: string, value: boolean): Promise<ListItemsModel[]> {
+  //   return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrl}/${id}/${name}/${value}`, this.httpOptions))
+  // }
+
   updateItem(id: string, name: string, value: boolean) {
-    return this.http.put(`${this.apiUrl}/${id}/${name}/${value}`, this.httpOptions);
+    console.log('resposta do check', value);
   }
 }
