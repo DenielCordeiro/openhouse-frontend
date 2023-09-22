@@ -30,13 +30,13 @@ export class AppComponent implements OnInit {
     this.checkbox;
   }
 
-  updatingItem(id: any, name: any, value: any, event: Event): void {
-    var eventChecked: any = event;
-
-    if (eventChecked.target?.checked === true) {
-      this.listItemsService.updateItem(id, name, value = true);
-    } else {
+  updatingItem(id: any, name: any, value: any): void {
+    if (value == true) {
       this.listItemsService.updateItem(id, name, value = false);
+    } else {
+      this.listItemsService.updateItem(id, name, value = true);
     }
+
+    this.gettingListItems();
   }
 }
