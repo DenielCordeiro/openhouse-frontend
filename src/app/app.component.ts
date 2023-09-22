@@ -8,35 +8,55 @@ import { ListItemsModel } from './model/list-items.model';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-  arrayItems!: ListItemsModel[];
-  checkbox: any = document.querySelector('.checkbox:checked');
+  itemsKitchen!: ListItemsModel[];
+  itemsRoom!: ListItemsModel[];
+  itemsServiceArea!: ListItemsModel[];
+  itemsBathroom!: ListItemsModel[];
 
   constructor( public listItemsService: ListItemsService ) { }
 
   ngOnInit(): void {
-    this.gettingListItems();
+    this.getAllLists();
   }
 
-  observableCheckbox(): void {
-    let checkbox = document.querySelector('Input');
-    console.log('checkbox: ', checkbox);
+  getAllLists(): void {
+    this.gettingListItemsKitchen();
+    this.gettingListItemsRoom();
+    this.gettingListItemsServiceArea();
+    this.gettingListItemsBathroom();
   }
 
-  gettingListItems(): void {
-    this.listItemsService.getList().subscribe(items => {
-      this.arrayItems = items;
+  gettingListItemsKitchen(): void {
+    this.listItemsService.getListKitchen().subscribe(items => {
+      this.itemsKitchen = items;
     });
-
-    this.checkbox;
   }
 
-  updatingItem(id: any, name: any, value: any): void {
+  gettingListItemsRoom(): void {
+    this.listItemsService.getListRoom().subscribe(items => {
+      this.itemsRoom = items;
+    });
+  }
+
+  gettingListItemsServiceArea(): void {
+    this.listItemsService.getListServiceArea().subscribe(items => {
+      this.itemsServiceArea = items;
+    });
+  }
+
+  gettingListItemsBathroom(): void {
+    this.listItemsService.getListBathroom().subscribe(items => {
+      this.itemsBathroom = items;
+    });
+  }
+
+  updatingItem(id: any, value: any): void {
     if (value == true) {
-      this.listItemsService.updateItem(id, name, value = false);
+      this.listItemsService.updateItem(id, value = false);
     } else {
-      this.listItemsService.updateItem(id, name, value = true);
+      this.listItemsService.updateItem(id, value = true);
     }
 
-    this.gettingListItems();
+    this.getAllLists();
   }
 }

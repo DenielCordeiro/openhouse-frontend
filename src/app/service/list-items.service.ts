@@ -17,15 +17,27 @@ export class ListItemsService {
 
   constructor(private http : HttpClient) {}
 
-  getList(): Observable<ListItemsModel[]> {
-    return this.http.get<ListItemsModel[]>(this.apiUrl, this.httpOptions);
+  getListKitchen(): Observable<ListItemsModel[]> {
+    return this.http.get<ListItemsModel[]>(this.apiUrl + 'kitchen', this.httpOptions);
   }
 
-  // updateItem(id: string, name: string, value: boolean): Promise<ListItemsModel[]> {
-  //   return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrl}/${id}/${name}/${value}`, this.httpOptions))
+  getListRoom(): Observable<ListItemsModel[]> {
+    return this.http.get<ListItemsModel[]>(this.apiUrl + 'room', this.httpOptions);
+  }
+
+  getListServiceArea(): Observable<ListItemsModel[]> {
+    return this.http.get<ListItemsModel[]>(this.apiUrl + 'serviceArea', this.httpOptions);
+  }
+
+  getListBathroom(): Observable<ListItemsModel[]> {
+    return this.http.get<ListItemsModel[]>(this.apiUrl + 'bathroom', this.httpOptions);
+  }
+
+  // updateItem(id: string, value: boolean): Promise<ListItemsModel[]> {
+  //   return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrl}/${id}/${value}`, this.httpOptions))
   // }
 
-  updateItem(id: string, name: string, value: boolean) {
+  updateItem(id: string, value: boolean) {
     console.log('resposta do check', value);
   }
 }
