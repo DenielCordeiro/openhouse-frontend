@@ -9,8 +9,7 @@ import { ListItemsModel } from './model/list-items.model';
 })
 export class AppComponent implements OnInit {
   arrayItems!: ListItemsModel[];
-  listItems!: ListItemsModel;
-  // checkbox: any = document.querySelector('.checkbox:checked');
+  checkbox: any = document.querySelector('.checkbox:checked');
 
   constructor( public listItemsService: ListItemsService ) { }
 
@@ -19,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   observableCheckbox(): void {
-    let checkbox = document.querySelector('Input')
+    let checkbox = document.querySelector('Input');
     console.log('checkbox: ', checkbox);
   }
 
@@ -28,8 +27,7 @@ export class AppComponent implements OnInit {
       this.arrayItems = items;
     });
 
-    this.observableCheckbox();
-
+    this.checkbox;
   }
 
   updatingItem(id: any, name: any, value: any, event: Event): void {
