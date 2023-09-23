@@ -1,17 +1,57 @@
 <section id="body">
-  <div class="content">
-    <div class="title">
-      <h1>Camila e Daniel</h1>
-    </div>
+  <div class="title">
+    <h1>Camila e Daniel</h1>
+  </div>
 
-    <div class="description">
-      <p>Lista de presentes que gostariamos de ganhar!</p>
-    </div>
+  <div class="description">
+    <p>Lista de presentes que gostariamos de ganhar!</p>
+  </div>
 
-    <!-- <div class="to-do-list mb-4" *ngFor="let item of arrayItems" (click)="updatingItem(item._id, item.name, item.value)">
+  <div class="category kitchen-category">
+    <h3>Cozinha</h3>
+  </div>
+
+  <div class="content content-kitchen">
+    <div class="to-do-list mb-4" *ngFor="let item of itemsKitchen" (click)="updatingItem(item._id, item.value)">
+      <i class="bi bi-toggle-off icon" *ngIf="item.value == false"></i>
+      <i class="bi bi-toggle-on icon" *ngIf="item.value == true"></i>
+      <span>{{ item.name }}</span>
+    </div>
+  </div>
+
+  <div class="category room-category">
+    <h3>Quarto</h3>
+  </div>
+
+  <div class="content content-room">
+    <div class="to-do-list mb-4" *ngFor="let item of itemsRoom" (click)="updatingItem(item._id, item.value)">
       <i class="bi bi-toggle-off" *ngIf="item.value == false"></i>
       <i class="bi bi-toggle-on" *ngIf="item.value == true"></i>
       <label for="name">{{ item.name }}</label>
-    </div> -->
+    </div>
+  </div>
+
+  <div class="category service-area-category">
+    <h3>Área de Serviço</h3>
+  </div>
+
+  <div class="content content-service-area">
+    <div class="to-do-list mb-4" *ngFor="let item of itemsServiceArea" (click)="updatingItem(item._id, item.value)">
+      <i class="bi bi-toggle-off" *ngIf="item.value == false"></i>
+      <i class="bi bi-toggle-on" *ngIf="item.value == true"></i>
+      <label for="name">{{ item.name }}</label>
+    </div>
+  </div>
+
+  <div class="category bathroom-category">
+    <h3>Banheiro</h3>
+  </div>
+
+  <div class="content content-bathroom">
+    <div class="to-do-list mb-4" *ngFor="let item of itemsBathroom" (click)="updatingItem(item._id, item.value)">
+      <i class="bi bi-toggle-off" *ngIf="item.value == false"></i>
+      <i class="bi bi-toggle-on" *ngIf="item.value == true"></i>
+      <label for="name">{{ item.name }}</label>
+    </div>
   </div>
 </section>

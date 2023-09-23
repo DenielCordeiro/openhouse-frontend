@@ -18,19 +18,19 @@ export class ListItemsService {
   constructor(private http : HttpClient) {}
 
   getListKitchen(): Observable<ListItemsModel[]> {
-    return this.http.get<ListItemsModel[]>(this.apiUrl + 'kitchen', this.httpOptions);
+    return this.http.get<ListItemsModel[]>(`${this.apiUrl}/kitchen`, this.httpOptions);
   }
 
   getListRoom(): Observable<ListItemsModel[]> {
-    return this.http.get<ListItemsModel[]>(this.apiUrl + 'room', this.httpOptions);
+    return this.http.get<ListItemsModel[]>(`${this.apiUrl}/room`, this.httpOptions);
   }
 
   getListServiceArea(): Observable<ListItemsModel[]> {
-    return this.http.get<ListItemsModel[]>(this.apiUrl + 'serviceArea', this.httpOptions);
+    return this.http.get<ListItemsModel[]>(`${this.apiUrl}/serviceArea`, this.httpOptions);
   }
 
   getListBathroom(): Observable<ListItemsModel[]> {
-    return this.http.get<ListItemsModel[]>(this.apiUrl + 'bathroom', this.httpOptions);
+    return this.http.get<ListItemsModel[]>(`${this.apiUrl}/bathroom`, this.httpOptions);
   }
 
   // updateItem(id: string, value: boolean): Promise<ListItemsModel[]> {
