@@ -8,7 +8,7 @@ import { LoadingComponent } from './loading/loading.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingComponent
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

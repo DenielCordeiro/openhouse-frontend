@@ -5,7 +5,7 @@ import { ListItemsModel } from './model/list-items.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
 })
 export class AppComponent implements OnInit {
   itemsKitchen!: ListItemsModel[];
@@ -14,7 +14,9 @@ export class AppComponent implements OnInit {
   itemsBathroom!: ListItemsModel[];
   toDoListChecked: string = 'to-do-list-checked';
 
-  constructor( public listItemsService: ListItemsService ) { }
+  constructor(
+    public listItemsService: ListItemsService,
+  ) { }
 
   ngOnInit(): void {
     this.getAllLists();
@@ -52,6 +54,7 @@ export class AppComponent implements OnInit {
   }
 
   updatingItem(id: any, value: any): void {
+
     if (value == true) {
       this.listItemsService.updateItem(id, value = false);
     } else {
