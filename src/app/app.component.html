@@ -12,10 +12,21 @@
   </div>
 
   <div class="content content-kitchen">
-    <div class="to-do-list mb-4" *ngFor="let item of itemsKitchen" (click)="updatingItem(item._id, item.value)">
-      <i class="bi bi-toggle-off icon" *ngIf="item.value == false"></i>
-      <i class="bi bi-toggle-on icon" *ngIf="item.value == true"></i>
-      <span>{{ item.name }}</span>
+    <div class="to-do-list mb-4" *ngFor="let item of itemsKitchen" (click)="updatingItem(item._id, item.value)" [ngClass]="item.value == true ? toDoListChecked : null">
+      <div class="row">
+        <div class="col-2 col-icon">
+          <i class="bi bi-toggle-off icon" *ngIf="item.value == false"></i>
+          <i class="bi bi-toggle-on icon" *ngIf="item.value == true"></i>
+        </div>
+        <div class="col-8">
+          <span *ngIf="item.value == false">{{ item.name }}</span>
+          <span class="name-selected" *ngIf="item.value == true"><del>{{ item.name }}</del></span>
+        </div>
+        <div class="col-2">
+          <i class="bi bi-gift" *ngIf="item.value == false"></i>
+          <i class="bi bi-gift gift" *ngIf="item.value == true"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -24,10 +35,21 @@
   </div>
 
   <div class="content content-room">
-    <div class="to-do-list mb-4" *ngFor="let item of itemsRoom" (click)="updatingItem(item._id, item.value)">
-      <i class="bi bi-toggle-off" *ngIf="item.value == false"></i>
-      <i class="bi bi-toggle-on" *ngIf="item.value == true"></i>
-      <label for="name">{{ item.name }}</label>
+    <div class="to-do-list mb-4" *ngFor="let item of itemsRoom" (click)="updatingItem(item._id, item.value)" [ngClass]="item.value == true ? toDoListChecked : null">
+      <div class="row">
+        <div class="col-2 col-icon">
+          <i class="bi bi-toggle-off icon" *ngIf="item.value == false"></i>
+          <i class="bi bi-toggle-on icon" *ngIf="item.value == true"></i>
+        </div>
+        <div class="col-8">
+          <span *ngIf="item.value == false">{{ item.name }}</span>
+          <span class="name-selected" *ngIf="item.value == true"><del>{{ item.name }}</del></span>
+        </div>
+        <div class="col-2">
+          <i class="bi bi-gift" *ngIf="item.value == false"></i>
+          <i class="bi bi-gift gift" *ngIf="item.value == true"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -36,10 +58,21 @@
   </div>
 
   <div class="content content-service-area">
-    <div class="to-do-list mb-4" *ngFor="let item of itemsServiceArea" (click)="updatingItem(item._id, item.value)">
-      <i class="bi bi-toggle-off" *ngIf="item.value == false"></i>
-      <i class="bi bi-toggle-on" *ngIf="item.value == true"></i>
-      <label for="name">{{ item.name }}</label>
+    <div class="to-do-list mb-4" *ngFor="let item of itemsServiceArea" (click)="updatingItem(item._id, item.value)" [ngClass]="item.value == true ? toDoListChecked : null">
+      <div class="row">
+        <div class="col-2 col-icon">
+          <i class="bi bi-toggle-off icon" *ngIf="item.value == false"></i>
+          <i class="bi bi-toggle-on icon" *ngIf="item.value == true"></i>
+        </div>
+        <div class="col-8">
+          <span *ngIf="item.value == false">{{ item.name }}</span>
+          <span class="name-selected" *ngIf="item.value == true"><del>{{ item.name }}</del></span>
+        </div>
+        <div class="col-2">
+          <i class="bi bi-gift" *ngIf="item.value == false"></i>
+          <i class="bi bi-gift gift" *ngIf="item.value == true"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -48,10 +81,21 @@
   </div>
 
   <div class="content content-bathroom">
-    <div class="to-do-list mb-4" *ngFor="let item of itemsBathroom" (click)="updatingItem(item._id, item.value)">
-      <i class="bi bi-toggle-off" *ngIf="item.value == false"></i>
-      <i class="bi bi-toggle-on" *ngIf="item.value == true"></i>
-      <label for="name">{{ item.name }}</label>
+    <div class="to-do-list mb-4" *ngFor="let item of itemsBathroom" (click)="updatingItem(item._id, item.value)" [ngClass]="item.value == true ? toDoListChecked : null">
+      <div class="row">
+        <div class="col-2 col-icon">
+          <i class="bi bi-toggle-off icon" *ngIf="item.value == false"></i>
+          <i class="bi bi-toggle-on icon" *ngIf="item.value == true"></i>
+        </div>
+        <div class="col-8">
+          <span *ngIf="item.value == false">{{ item.name }}</span>
+          <span class="name-selected" *ngIf="item.value == true"><del>{{ item.name }}</del></span>
+        </div>
+        <div class="col-2">
+          <i class="bi bi-gift" *ngIf="item.value == false"></i>
+          <i class="bi bi-gift gift" *ngIf="item.value == true"></i>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -33,11 +33,7 @@ export class ListItemsService {
     return this.http.get<ListItemsModel[]>(`${this.apiUrl}/bathroom`, this.httpOptions);
   }
 
-  // updateItem(id: string, value: boolean): Promise<ListItemsModel[]> {
-  //   return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrl}/${id}/${value}`, this.httpOptions))
-  // }
-
-  updateItem(id: string, value: boolean) {
-    console.log('resposta do check', value);
+  updateItem(id: string, value: boolean): Promise<ListItemsModel[]> {
+    return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrl}/${id}/${value}`, this.httpOptions))
   }
 }

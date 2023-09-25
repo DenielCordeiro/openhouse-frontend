@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   itemsRoom!: ListItemsModel[];
   itemsServiceArea!: ListItemsModel[];
   itemsBathroom!: ListItemsModel[];
+  toDoListChecked: string = 'to-do-list-checked';
 
   constructor( public listItemsService: ListItemsService ) { }
 
