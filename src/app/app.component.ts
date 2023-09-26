@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   itemsRoom!: ListItemsModel[];
   itemsServiceArea!: ListItemsModel[];
   itemsBathroom!: ListItemsModel[];
+  loading: boolean = false;
   toDoListChecked: string = 'to-do-list-checked';
 
   constructor(
@@ -54,13 +55,23 @@ export class AppComponent implements OnInit {
   }
 
   updatingItem(id: any, value: any): void {
-
     if (value == true) {
       this.listItemsService.updateItem(id, value = false);
+      this.onLoading();
+      this.getAllLists();
     } else {
       this.listItemsService.updateItem(id, value = true);
+      this.onLoading();
+      this.getAllLists();
     }
+  }
 
-    this.getAllLists();
+  onLoading() {
+    this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false;
+      console.log(this.loading);
+    }, 3000);
   }
 }

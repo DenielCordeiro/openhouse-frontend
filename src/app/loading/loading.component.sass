@@ -1,4 +1,5 @@
 @use '../../assets/sass/colors'
+@use '../../assets/sass/mobile'
 
 .load7 .loader:before,
 .load7 .loader:after,
@@ -12,7 +13,7 @@
   animation: load7 1.8s infinite ease-in-out
 
 .load7 .loader
-  left: 45%
+  left: 48vw
   margin: 8em auto
   font-size: 16px
   position: fixed
@@ -22,6 +23,9 @@
   transform: translateZ(0)
   -webkit-animation-delay: -0.16s
   animation-delay: -0.16s
+
+  @include mobile.display
+    left: 45vw
 
 .load7 .loader:before
   left: -3.5em
