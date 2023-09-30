@@ -8,6 +8,7 @@ import { ListItemsModel } from '../model/list-items.model';
 })
 export class ListItemsService {
   apiUrl: string = 'https://openhouse-backend-kappa.vercel.app/items';
+  apiUrlUpdate: string = 'https://openhouse-backend-kappa.vercel.app';
 
   httpOptions: {} = {
     headers: new HttpHeaders({
@@ -34,6 +35,6 @@ export class ListItemsService {
   }
 
   updateItem(id: string, value: boolean): Promise<ListItemsModel[]> {
-    return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrl}/${id}/${value}`, this.httpOptions))
+    return lastValueFrom(this.http.put<ListItemsModel[]>(`${this.apiUrlUpdate}/${id}/${value}`, this.httpOptions))
   }
 }
