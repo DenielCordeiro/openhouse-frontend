@@ -7,7 +7,7 @@ import { ListItemsModel } from '../model/list-items.model';
   providedIn: 'root'
 })
 export class ListItemsService {
-  apiUrl: string = 'http://localhost:3334/items';
+  apiUrl: string = 'https://openhouse-backend-kappa.vercel.app';
 
   httpOptions: {} = {
     headers: new HttpHeaders({
