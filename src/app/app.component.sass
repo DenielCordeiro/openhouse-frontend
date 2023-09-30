@@ -1,4 +1,5 @@
 @use '../assets/sass/colors'
+@use '../assets/sass/mobile'
 
 *
   margin: 0
@@ -6,10 +7,33 @@
 
 .title
   background-color: colors.$beige
-  color: colors.$black
-  height: 20vh
+  height: 15vh
   width: 100%
   text-align: center
+
+  .logo
+    img
+      position: absolute
+      top: -40px
+      left: 43%
+      height: 18vh
+      width: 15vw
+
+      @include mobile.display
+        top: -28px
+        left: 29%
+        height: 18vh
+        width: 45vw
+
+  .writing
+    img
+      height: 22vh
+      width: 25vw
+
+      @include mobile.display
+        height: 24vh
+        width: 55vw
+
 
 .description
   background-color: colors.$beige

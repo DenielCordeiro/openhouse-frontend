@@ -68,6 +68,7 @@ export class AppComponent implements OnInit {
 
   onLoading() {
     this.loading = true;
+    this.getAllLists();
 
     setTimeout(() => {
       this.loading = false;
