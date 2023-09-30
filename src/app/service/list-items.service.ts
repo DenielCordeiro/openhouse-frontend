@@ -7,7 +7,8 @@ import { ListItemsModel } from '../model/list-items.model';
   providedIn: 'root'
 })
 export class ListItemsService {
-  apiUrl: string = 'https://openhouse-backend-kappa.vercel.app/items';
+  // apiUrl: string = 'https://openhouse-backend-kappa.vercel.app/items';
+  apiUrl: string = 'https://openhouse-backend-daniel-mtz11-outlookcom.vercel.app/items';
 
   httpOptions: {} = {
     headers: new HttpHeaders({
